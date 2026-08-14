@@ -1,0 +1,15 @@
+C:\dotnet-learnings\Basics\BasicCode\bin\Debug\net10.0\BasicCode.exe
+C:\dotnet-learnings\Basics\BasicCode\bin\Debug\net10.0\BasicCode.deps.json
+C:\dotnet-learnings\Basics\BasicCode\bin\Debug\net10.0\BasicCode.runtimeconfig.json
+C:\dotnet-learnings\Basics\BasicCode\bin\Debug\net10.0\BasicCode.dll
+C:\dotnet-learnings\Basics\BasicCode\bin\Debug\net10.0\BasicCode.pdb
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.GeneratedMSBuildEditorConfig.editorconfig
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.AssemblyInfoInputs.cache
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.AssemblyInfo.cs
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.csproj.CoreCompileInputs.cache
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.sourcelink.json
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.dll
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\refint\BasicCode.dll
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.pdb
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\BasicCode.genruntimeconfig.cache
+C:\dotnet-learnings\Basics\BasicCode\obj\Debug\net10.0\ref\BasicCode.dll
