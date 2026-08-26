@@ -1,0 +1,101 @@
+# ============================================
+# .NET / C# Git Ignore
+# ============================================
+
+# Build output
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.suo
+*.userprefs
+
+# Visual Studio Code
+.vscode/
+
+# JetBrains Rider / ReSharper
+.idea/
+*.sln.iml
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
+
+# Build / generated files
+*.dll
+*.exe
+*.pdb
+*.cache
+*.nupkg
+*.snupkg
+
+# NuGet
+packages/
+.nuget/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Test results
+TestResults/
+[Bb]uild[Ll]og.*
+*.trx
+
+# Coverage
+coverage/
+*.coverage
+*.coveragexml
+*.opencover.xml
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# OS generated files
+Desktop.ini
+
+# Publish output
+publish/
+wwwroot/
+
+# Local configuration / secrets
+.env
+.env.*
+!.env.example
+
+# User-specific local settings
+appsettings.Development.json
+appsettings.Local.json
+
+# Azure / deployment local files
+.azure/
+
+# Generated documentation
+docs/_site/
+
+# Database files created locally
+*.db
+*.sqlite
+*.sqlite3
+
+# Local development certificates
+*.pfx
+*.pem
+
+# ============================================
+# Keep source/project files
+# ============================================
+# .cs files are NOT ignored
+# .csproj files are NOT ignored
+# .sln / .slnx files are NOT ignored
