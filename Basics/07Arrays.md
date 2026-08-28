@@ -955,3 +955,788 @@ Output:
 ```
 
 ---
+
+# 25. Useful Methods in `Array`
+
+C# provides the `System.Array` class with useful methods.
+
+## `Array.Sort()`
+
+Sorts an array.
+
+```csharp
+int[] numbers = { 50, 20, 40, 10, 30 };
+
+Array.Sort(numbers);
+
+foreach (int number in numbers)
+{
+    Console.WriteLine(number);
+}
+```
+
+Output:
+
+```text
+10
+20
+30
+40
+50
+```
+
+---
+
+# 26. `Array.Reverse()`
+
+Reverses the array.
+
+```csharp
+int[] numbers = { 10, 20, 30, 40, 50 };
+
+Array.Reverse(numbers);
+```
+
+Now:
+
+```text
+50 40 30 20 10
+```
+
+---
+
+# 27. `Array.IndexOf()`
+
+Finds the index of an element.
+
+```csharp
+int[] numbers = { 10, 20, 30, 40, 50 };
+
+int index = Array.IndexOf(numbers, 30);
+
+Console.WriteLine(index);
+```
+
+Output:
+
+```text
+2
+```
+
+If the element doesn't exist, it generally returns:
+
+```text
+-1
+```
+
+---
+
+# 28. `Array.Copy()`
+
+Copies elements from one array to another.
+
+```csharp
+int[] numbers = { 10, 20, 30, 40, 50 };
+
+int[] copy = new int[5];
+
+Array.Copy(numbers, copy, numbers.Length);
+```
+
+Now `copy` contains:
+
+```text
+10 20 30 40 50
+```
+
+---
+
+# 29. `Array.Clear()`
+
+Sets elements back to their default values.
+
+```csharp
+int[] numbers = { 10, 20, 30, 40, 50 };
+
+Array.Clear(numbers, 0, numbers.Length);
+```
+
+For an `int` array, the result is:
+
+```text
+0 0 0 0 0
+```
+
+---
+
+# 30. Searching an Array
+
+You can manually search:
+
+```csharp
+int[] numbers = { 10, 20, 30, 40, 50 };
+
+int target = 30;
+bool found = false;
+
+foreach (int number in numbers)
+{
+    if (number == target)
+    {
+        found = true;
+        break;
+    }
+}
+
+Console.WriteLine(found);
+```
+
+Output:
+
+```text
+True
+```
+
+You can also use:
+
+```csharp
+int index = Array.IndexOf(numbers, target);
+```
+
+---
+
+# 31. Finding Maximum and Minimum
+
+You can manually calculate them:
+
+```csharp
+int[] numbers = { 10, 50, 20, 80, 30 };
+
+int max = numbers[0];
+
+foreach (int number in numbers)
+{
+    if (number > max)
+    {
+        max = number;
+    }
+}
+
+Console.WriteLine(max);
+```
+
+Output:
+
+```text
+80
+```
+
+With LINQ, you can also write:
+
+```csharp
+int max = numbers.Max();
+int min = numbers.Min();
+```
+
+You need:
+
+```csharp
+using System.Linq;
+```
+
+---
+
+# 32. Finding the Sum
+
+Using a loop:
+
+```csharp
+int[] numbers = { 10, 20, 30, 40 };
+
+int sum = 0;
+
+foreach (int number in numbers)
+{
+    sum += number;
+}
+
+Console.WriteLine(sum);
+```
+
+Output:
+
+```text
+100
+```
+
+Using LINQ:
+
+```csharp
+int sum = numbers.Sum();
+```
+
+---
+
+# 33. Average
+
+Using LINQ:
+
+```csharp
+int[] marks = { 80, 70, 90, 60, 85 };
+
+double average = marks.Average();
+
+Console.WriteLine(average);
+```
+
+Output:
+
+```text
+77
+```
+
+---
+
+# 34. Array Initialization with `var`
+
+You can use `var` when the compiler can infer the type:
+
+```csharp
+var numbers = new int[] { 10, 20, 30 };
+```
+
+The compiler understands that:
+
+```csharp
+numbers
+```
+
+is:
+
+```csharp
+int[]
+```
+
+You can also use:
+
+```csharp
+var names = new string[] { "Ram", "Sita", "Hari" };
+```
+
+But this is invalid:
+
+```csharp
+var numbers = { 10, 20, 30 }; // ❌
+```
+
+Use:
+
+```csharp
+var numbers = new[] { 10, 20, 30 };
+```
+
+---
+
+# 35. Implicitly Typed Arrays
+
+C# can infer the array type:
+
+```csharp
+var numbers = new[] { 10, 20, 30 };
+```
+
+The compiler determines:
+
+```csharp
+int[]
+```
+
+Similarly:
+
+```csharp
+var names = new[] { "Ram", "Sita", "Hari" };
+```
+
+becomes:
+
+```csharp
+string[]
+```
+
+All elements must have a compatible type.
+
+---
+
+# 36. Passing Arrays to Methods
+
+Arrays can be passed to methods.
+
+```csharp
+static void PrintNumbers(int[] numbers)
+{
+    foreach (int number in numbers)
+    {
+        Console.WriteLine(number);
+    }
+}
+```
+
+Call it:
+
+```csharp
+int[] numbers = { 10, 20, 30 };
+
+PrintNumbers(numbers);
+```
+
+---
+
+# 37. Returning an Array from a Method
+
+A method can return an array.
+
+```csharp
+static int[] GetNumbers()
+{
+    return new int[] { 10, 20, 30, 40 };
+}
+```
+
+Then:
+
+```csharp
+int[] numbers = GetNumbers();
+```
+
+---
+
+# 38. Arrays and Reference Types
+
+This is an important concept in C#.
+
+An array is a **reference type**, even if it contains value types such as `int`.
+
+For example:
+
+```csharp
+int[] a = { 10, 20, 30 };
+
+int[] b = a;
+
+b[0] = 100;
+
+Console.WriteLine(a[0]);
+```
+
+Output:
+
+```text
+100
+```
+
+Why?
+
+Because:
+
+```csharp
+int[] b = a;
+```
+
+doesn't create a new array.
+
+Both variables refer to the **same array object**.
+
+Conceptually:
+
+```text
+a ──────────┐
+            ↓
+       [10, 20, 30]
+            ↑
+b ──────────┘
+```
+
+After:
+
+```csharp
+b[0] = 100;
+```
+
+the array becomes:
+
+```text
+[100, 20, 30]
+```
+
+Therefore `a[0]` is also `100`.
+
+---
+
+# 39. Copying an Array Properly
+
+If you want an independent copy, use:
+
+```csharp
+int[] a = { 10, 20, 30 };
+
+int[] b = (int[])a.Clone();
+
+b[0] = 100;
+
+Console.WriteLine(a[0]);
+Console.WriteLine(b[0]);
+```
+
+Output:
+
+```text
+10
+100
+```
+
+You can also use:
+
+```csharp
+int[] b = a.ToArray();
+```
+
+with LINQ.
+
+---
+
+# 40. Array vs `List<T>`
+
+This is extremely important when developing applications.
+
+### Array
+
+```csharp
+int[] numbers = new int[5];
+```
+
+Size is fixed.
+
+### List
+
+```csharp
+List<int> numbers = new List<int>();
+```
+
+Size can grow.
+
+For example:
+
+```csharp
+numbers.Add(10);
+numbers.Add(20);
+numbers.Add(30);
+```
+
+Then:
+
+```text
+10 20 30
+```
+
+You can add another:
+
+```csharp
+numbers.Add(40);
+```
+
+So the basic difference is:
+
+| Feature       | Array           | List                |
+| ------------- | --------------- | ------------------- |
+| Size          | Fixed           | Dynamic             |
+| Syntax        | `int[]`         | `List<int>`         |
+| Indexing      | Yes             | Yes                 |
+| Add easily    | No              | Yes                 |
+| Remove easily | No              | Yes                 |
+| Performance   | Very efficient  | Slight overhead     |
+| Common use    | Fixed-size data | Dynamic collections |
+
+---
+
+# 41. Array vs List Example
+
+Suppose you know there will always be exactly 5 exam marks:
+
+```csharp
+int[] marks = new int[5];
+```
+
+An array is perfectly reasonable.
+
+But if you are storing users who can register at any time:
+
+```csharp
+List<string> users = new List<string>();
+```
+
+is generally more appropriate.
+
+```csharp
+users.Add("Ram");
+users.Add("Sita");
+users.Add("Hari");
+```
+
+---
+
+# 42. Common Array Mistakes
+
+### Mistake 1: Forgetting zero-based indexing
+
+```csharp
+int[] numbers = { 10, 20, 30 };
+
+Console.WriteLine(numbers[1]); // 20
+```
+
+Not `10`.
+
+---
+
+### Mistake 2: Going beyond the array
+
+```csharp
+int[] numbers = new int[3];
+
+numbers[3] = 100; // ❌
+```
+
+Valid indices are:
+
+```text
+0, 1, 2
+```
+
+---
+
+### Mistake 3: Using `<=` instead of `<`
+
+Incorrect:
+
+```csharp
+for (int i = 0; i <= numbers.Length; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+```
+
+At the end, it tries:
+
+```csharp
+numbers[numbers.Length]
+```
+
+which doesn't exist.
+
+Correct:
+
+```csharp
+for (int i = 0; i < numbers.Length; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+```
+
+---
+
+### Mistake 4: Expecting an array to grow
+
+```csharp
+int[] numbers = new int[3];
+
+// Want to add another element
+```
+
+You cannot simply do:
+
+```csharp
+numbers.Add(40); // ❌
+```
+
+Use:
+
+```csharp
+List<int>
+```
+
+if dynamic size is required.
+
+---
+
+# 43. A Practical Example
+
+Let's create a small program that accepts student marks and calculates the total, average, maximum, and minimum.
+
+```csharp
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        int[] marks = new int[5];
+
+        for (int i = 0; i < marks.Length; i++)
+        {
+            Console.Write($"Enter mark {i + 1}: ");
+            marks[i] = Convert.ToInt32(Console.ReadLine());
+        }
+
+        Console.WriteLine("\nMarks:");
+
+        foreach (int mark in marks)
+        {
+            Console.WriteLine(mark);
+        }
+
+        Console.WriteLine($"Total: {marks.Sum()}");
+        Console.WriteLine($"Average: {marks.Average()}");
+        Console.WriteLine($"Maximum: {marks.Max()}");
+        Console.WriteLine($"Minimum: {marks.Min()}");
+    }
+}
+```
+
+This example combines:
+
+* Array declaration
+* Array creation
+* User input
+* Indexing
+* `for`
+* `foreach`
+* `Length`
+* LINQ
+* `Sum()`
+* `Average()`
+* `Max()`
+* `Min()`
+
+---
+
+# 44. Important Syntax Cheat Sheet
+
+### Declare
+
+```csharp
+int[] numbers;
+```
+
+### Create
+
+```csharp
+numbers = new int[5];
+```
+
+### Declare + create
+
+```csharp
+int[] numbers = new int[5];
+```
+
+### Initialize
+
+```csharp
+int[] numbers = { 10, 20, 30 };
+```
+
+### Modern initialization
+
+```csharp
+int[] numbers = [10, 20, 30];
+```
+
+### Access
+
+```csharp
+numbers[0];
+```
+
+### Modify
+
+```csharp
+numbers[0] = 100;
+```
+
+### Size
+
+```csharp
+numbers.Length;
+```
+
+### Loop
+
+```csharp
+for (int i = 0; i < numbers.Length; i++)
+{
+    Console.WriteLine(numbers[i]);
+}
+```
+
+### Foreach
+
+```csharp
+foreach (int number in numbers)
+{
+    Console.WriteLine(number);
+}
+```
+
+### Sort
+
+```csharp
+Array.Sort(numbers);
+```
+
+### Reverse
+
+```csharp
+Array.Reverse(numbers);
+```
+
+### Search
+
+```csharp
+Array.IndexOf(numbers, 20);
+```
+
+### 2D array
+
+```csharp
+int[,] matrix = new int[3, 3];
+```
+
+### Jagged array
+
+```csharp
+int[][] matrix = new int[3][];
+```
+
+---
+
+## The mental model to remember
+
+Think of an array as a **fixed-size row of boxes**:
+
+```text
+int[] numbers = { 10, 20, 30, 40 };
+
+             Index
+               ↓
+        ┌────┬────┬────┬────┐
+        │ 10 │ 20 │ 30 │ 40 │
+        └────┴────┴────┴────┘
+          0    1    2    3
+```
+
+`numbers` refers to the whole array, while `numbers[2]` refers to one element.
+
+The most important things to master are:
+
+**declaration → creation → initialization → indexing → `Length` → loops → 2D arrays → jagged arrays → array methods → arrays vs `List<T>`.**
