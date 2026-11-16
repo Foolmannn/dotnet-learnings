@@ -1,0 +1,23 @@
+﻿@model Lab6StudentApp.Models.Student
+
+<h2>Edit Student</h2>
+
+<form asp-action="Edit" method="post">
+
+    <input type="hidden" asp-for="Id" />
+
+    <label>Name</label>
+    <input asp-for="Name" />
+    <br />
+
+    <label>Department</label>
+    <input asp-for="Department" />
+    <br />
+
+    <label>Address</label>
+    <input asp-for="Address" />
+    <br />
+
+    <button type="submit">Update</button>
+
+</form>

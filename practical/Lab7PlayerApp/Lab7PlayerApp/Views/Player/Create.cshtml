@@ -1,0 +1,38 @@
+﻿@model Lab7PlayerApp.Models.Player
+
+<h2>Player Registration</h2>
+
+<form asp-action="Create" method="post">
+
+    <label>Player Name</label><br />
+    <input asp-for="Name" style="margin-top: 5px;" />
+    <span asp-validation-for="Name"></span>
+    <br /><br />
+
+    <label>Age</label><br />
+    <input asp-for="Age" type="number" style="margin-top: 5px;" />
+    <span asp-validation-for="Age"></span>
+    <br /><br />
+
+    <label>Email</label><br />
+    <input asp-for="Email" style="margin-top: 5px;" />
+    <span asp-validation-for="Email"></span>
+    <br /><br />
+
+    <label>Sport</label><br />
+    <input asp-for="Sport" style="margin-top: 5px;" />
+    <span asp-validation-for="Sport"></span>
+    <br /><br />
+
+    <button type="submit">Save</button>
+
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <p>@ViewBag.Message</p>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

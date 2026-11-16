@@ -1,0 +1,80 @@
+﻿
+@page
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Login Form Validation</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+            body {
+                font-family: Arial;
+                margin: 50px;
+            }
+
+            input {
+                padding: 8px;
+                margin: 8px;
+            }
+
+            .error {
+                color: red;
+            }
+    </style>
+
+</head>
+
+<body>
+
+    <h2>User Login</h2>
+
+    <form id="loginForm">
+
+        <label>Username:</label>
+        <input type="text" id="username">
+        <br>
+
+        <label>Password:</label>
+        <input type="password" id="password">
+        <br>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <p id="message"></p>
+
+    <script>
+            $(document).ready(function () {
+
+                $("#loginForm").submit(function (event) {
+
+                    event.preventDefault();
+
+                    var username = $("#username").val().trim();
+
+                    var password = $("#password").val().trim();
+
+                    if (username === "" || password === "") {
+
+                        $("#message")
+                            .text("Username and Password are required.")
+                            .addClass("error");
+
+                    }
+                    else {
+
+                        $("#message")
+                            .removeClass("error")
+                            .text("Login form submitted successfully!");
+
+                    }
+
+                });
+
+        });</script>
+
+    </body>
+</html>

@@ -1,0 +1,28 @@
+﻿@model Lab6StudentApp.Models.Student
+
+<h2>Add Student</h2>
+
+<form asp-action="Create" method="post">
+
+    <label>Name</label>
+    <input asp-for="Name" />
+    <span asp-validation-for="Name"></span>
+    <br />
+
+    <label>Department</label>
+    <input asp-for="Department" />
+    <span asp-validation-for="Department"></span>
+    <br />
+
+    <label>Address</label>
+    <input asp-for="Address" />
+    <span asp-validation-for="Address"></span>
+    <br />
+
+    <button type="submit">Save</button>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
